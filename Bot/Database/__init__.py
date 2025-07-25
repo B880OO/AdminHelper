@@ -1,2 +1,2 @@
 from .base import Base
-from .model import User, Channal
+from .model import User, Channel

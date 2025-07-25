@@ -62,10 +62,7 @@ class TelegramBot:
     def _setup_middleware(self):
         """Настройка middleware"""
         self.logger.debug("Настройка middleware...")
-        self.dp.message.middleware(DataBaseSessionMiddleware(self._session_maker))
-        self.dp.callback_query.middleware(
-            DataBaseSessionMiddleware(self._session_maker)
-        )
+        self.dp.update.middleware(DataBaseSessionMiddleware(self._session_maker))
         self.logger.debug("Middleware настроены")
 
     async def _on_startup(self) -> None:
